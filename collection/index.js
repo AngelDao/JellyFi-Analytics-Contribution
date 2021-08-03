@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { ethers } = require("ethers");
-const { getEvents } = require("./utils/fetch");
+const { getEvents } = require("./utils/getEvents");
 
 const main = async (fromLast) => {
   let provider;
@@ -28,6 +28,8 @@ const main = async (fromLast) => {
   return stats;
 };
 
-module.exports = {
-  scraper: main,
-};
+main();
+
+// module.exports = {
+//   scraper: main,
+// };
