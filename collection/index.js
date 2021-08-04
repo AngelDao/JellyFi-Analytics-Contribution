@@ -19,7 +19,8 @@ const main = async (fromLast) => {
       console.log("scraper started");
       stats = await getEvents(provider, fromLast);
       // here is the time series data
-      const stats = timeSeries(stats);
+      const data = timeSeries(stats);
+      console.log(data);
       console.log("scraper ended");
     } catch (err) {
       console.log("scraper crash:");

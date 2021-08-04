@@ -11,8 +11,6 @@ const timeSeries = async (events) => {
     const timestamp = e.timestamp * 1000;
     const num = e.value;
     const user = e.user;
-    console.log(typeof num);
-    console.log(num);
 
     if (!accounts[user]) {
       //   console.log("not present", user);
