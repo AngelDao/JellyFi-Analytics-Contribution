@@ -1,5 +1,3 @@
-const { addMany } = require("./addMany");
-const { formatGrafana } = require("./formatGrafana");
-const { lastBlock } = require("./lastBlock");
+const { timeSeries } = require("./createTimeSeries");
 
-module.exports = { addMany, formatGrafana, lastBlock };
+module.exports = { addMany, timeSeries, lastBlock };

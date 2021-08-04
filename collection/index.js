@@ -1,13 +1,14 @@
 require("dotenv").config();
 const { ethers } = require("ethers");
 const { getEvents } = require("./utils/getEvents");
+const EPService = require("./services/EventPoints");
 
 const main = async (fromLast) => {
   let provider;
 
   if (process.env.PROJECT_ID) {
     provider = new ethers.providers.InfuraProvider(
-      "homestead",
+      "kovan",
       process.env.PROJECT_ID
     );
   }
@@ -17,6 +18,8 @@ const main = async (fromLast) => {
     try {
       console.log("scraper started");
       stats = await getEvents(provider, fromLast);
+      EPService.timeSeries(stats);
+      // console.log(stats);
       console.log("scraper ended");
     } catch (err) {
       console.log("stats crash:");
