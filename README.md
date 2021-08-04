@@ -18,8 +18,8 @@ The shape of time series data returned is:
 
 ```
 [
-    { target: "TVL", data:[ [value:Number, timestamp:UNIX Timestamp] ]}
+    { target: "TVL", data:[ [value:Number, timestamp:UNIX Timestamp as Number] ]}
 
-    { target: "Unique Addresses", data:[ [count:Number, timestamp:UNIX Timestamp] ]}
+    { target: "Unique Addresses", data:[ [count:Number, timestamp:UNIX Timestamp as Number] ]}
 ]
 ```
