@@ -1,15 +1,13 @@
-# Grafana DeFi Dashboard
+# JellyFi Kovan Analytics Generator
 
-This application utilizes Node.js, MongoDB, Express.js, and Grafana.
+This application utilizes Node.js and ethers.js to pull event data from the Ethereum block chain to form time series data on JellFi Kovan contract deployments. Time series data is produced for app TVL and Unique Address from contract deploy block to now.
 
 ## Flow
 
 The following is a pseudo flow of the app
 
-1. `POST` request is sent from Grafana to `/query`. In the body of the request the `only` key value pair is passed to choose which data to target per the panel
+1. add infura project id like `PROJECT_ID=your id` to `.env` and place the file in `./collection`
 
-2. `scraper.js` collects data from **new onchain events** stores them in db, including blocknumber and timestamp
+2. run `node index.js`
 
-3. db is queried and data is formatted to match [Grafana JSON Timeseries plugin pattern](https://grafana.com/grafana/plugins/simpod-json-datasource/)
-
-4. formatted data is sent to Grafana and displayed on the panel per settings set.
+3. time series data for **TVL** and **Unique Adresses** from the `borrow-pool.sol` deployed on Kovan at `0x22f02241A4BC37361a45a67DC57703C4dff4dBc8` will be returned in `./collection/index.js` and from `timeSeries()`. This data is from the deploy block of `0x22f02241A4BC37361a45a67DC57703C4dff4dBc8` to now

@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { ethers } = require("ethers");
 const { getEvents } = require("./utils/getEvents");
-const EPService = require("./services/EventPoints");
+const { timeSeries } = require("./services/EventPoints");
 
 const main = async (fromLast) => {
   let provider;
@@ -18,11 +18,11 @@ const main = async (fromLast) => {
     try {
       console.log("scraper started");
       stats = await getEvents(provider, fromLast);
-      EPService.timeSeries(stats);
-      // console.log(stats);
+      // here is the time series data
+      const stats = timeSeries(stats);
       console.log("scraper ended");
     } catch (err) {
-      console.log("stats crash:");
+      console.log("scraper crash:");
       console.log(err);
     }
   } else {
