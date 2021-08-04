@@ -1,4 +1,4 @@
-const timeSeries = async (events) => {
+const timeSeries = (events) => {
   let tvl = 0;
   const accounts = {};
   const response = [

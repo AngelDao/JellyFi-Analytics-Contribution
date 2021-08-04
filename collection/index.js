@@ -20,7 +20,13 @@ const main = async (fromLast) => {
       stats = await getEvents(provider, fromLast);
       // here is the time series data
       const data = timeSeries(stats);
-      console.log(data);
+
+      // TVL time series
+      // console.log(data[0].data);
+
+      // Unique Adresses time series
+      // console.log(data[1].data);
+
       console.log("scraper ended");
     } catch (err) {
       console.log("scraper crash:");
